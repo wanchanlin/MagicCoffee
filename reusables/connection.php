@@ -1,15 +1,15 @@
 <?php
-          $connect = mysqli_connect(
+    $servername = "sql102.infinityfree.com";
+    $username = "if0_38440812";
+    $password = "fSOYTCvVIOtK";
+    $dbname = "if0_38440812_coffee";
 
-            'localhost',
-            'root',
-            'root', 
-            'coffee'
-          );
-          if(!$connect){
-            echo 'Error Code: ' . mysqli_connect_errno();
-            echo 'Error Message: ' . mysqli_connect_error();
-            exit;
-          }
-        
-        ?>
+    $connect = mysqli_connect($servername, $username, $password, $dbname);
+
+
+    if(!$connect){
+        echo 'Error Code: ' . mysqli_connect_errno() . '<br>';
+        echo 'Error Message: ' . mysqli_connect_error();
+        exit;
+    }
+?>

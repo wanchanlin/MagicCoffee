@@ -17,7 +17,7 @@
     
     <section class="content-wrapper">
         <div class="container">
-            <h2>Ranks</h2>
+            <h2 class="text-center">Ranks</h2>
             <div class="row">
             <?php 
     include('reusables/connection.php');
@@ -30,25 +30,26 @@
         $beanId = $rank['beanId'];
         $beanTypeName = $beanTypes[$beanId] ?? 'Unknown';
 ?>
-       <div class="col-12">
-    <div class="card mb-4 shadow-sm">
-        <div class="card-body d-flex align-items-center">
-            <!-- Image on the left -->
-            <div class="col-md-4 text-center">
-                <img class="drink-img"  src="images/<?php echo $rank['image']; ?>" alt="<?php echo $rank['name']; ?>" class="img-fluid rounded">
-            </div>
-            <!-- Content on the right -->
-            <div class="col-md-8">
-                <p class="badge yellow"><?php echo $rank['id']; ?></p>
-                <h3 style="text-align: left; "><?php echo $rank['name']; ?></h3>
-                <p><?php echo $rank['description']; ?></p>
-                <a href="bean_detail.php?beanId=<?php echo $beanId; ?>" class="badge bg-warning text-dark">
-                <?php echo $beanTypeName; ?>
-                </a>
+
+    <div class="col-12">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body d-flex flex-column flex-md-row">
+                <!-- Image on top on mobile, right on larger screens -->
+                <div class=" col-md-4 text-center">
+                    <img class="drink-img img-fluid rounded" src="images/<?php echo $rank['image']; ?>" alt="<?php echo $rank['name']; ?>">
+                </div>
+                <!-- Content below image on mobile, left on larger screens -->
+                <div class=" col-md-8">
+                    <p class="badge yellow"><?php echo $rank['id']; ?></p>
+                    <h3 style="text-align: left;"><?php echo $rank['name']; ?></h3>
+                    <p><?php echo $rank['description']; ?></p>
+                    <a href="bean_detail.php?beanId=<?php echo $beanId; ?>" class="badge bg-warning text-dark">
+                    <?php echo $beanTypeName; ?>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 <?php } ?>
             </div>
@@ -57,3 +58,4 @@
     
     <?php include('reusables/footer.php'); ?>
 </body>
+</html>
